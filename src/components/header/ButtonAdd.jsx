@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import CustomerInfo from "../form/CustomerInfo";
+import ContactInfo from "../form/ContactInfo";
+import InfoDetail from "../form/InfoDetail";
 
 function ButtonAdd() {
   const [isFormVisible, setIsFormVisible] = useState(false); // State để quản lý hiển thị form
@@ -18,7 +21,7 @@ function ButtonAdd() {
       </button>
       {isFormVisible && ( // Hiển thị form nếu isFormVisible là true
         <div className="absolute z-20 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50px] bg-white">
-          <div className="flex justify-between items-center px-[19px] py-[17px] bg-[#bd8306]/90 rounded-tl rounded-tr">
+          <div className="flex justify-between items-center text-white px-[19px] py-[17px] bg-[#bd8306]/90 rounded-tl rounded-tr">
             <h2>Tạo khách hàng</h2>
             <button
               onClick={toggleFormVisibility}
@@ -50,67 +53,10 @@ function ButtonAdd() {
               </svg>
             </button>
           </div>
-          <form className="px-[25px] py-[25px] flex flex-col">
-            <div className="flex gap-[100px]">
-              <div className="flex flex-col gap-5">
-                <div className="flex flex-col items-start gap-[4px]">
-                  <label
-                    className=" text-[#8f8f8f] text-xs font-normal"
-                    htmlFor="name"
-                  >
-                    Họ tên khách hàng
-                    <span className="text-[#da5353] text-xs font-normal">
-                      *
-                    </span>
-                  </label>
-                  <input
-                    className="w-[363px] px-2 pl-[18px] h-9 bg-[#edf9f6] rounded border border-[#dbdbdb] text-[#181a22] text-sm font-normal font-['Open Sans'] leading-tight"
-                    type="text"
-                    name="name"
-                    id="name"
-                  />
-                </div>
-                <div className="flex gap-[24px] ">
-                  <div className="flex flex-col items-start gap-[4px]">
-                    <label
-                      className=" text-[#8f8f8f] text-xs font-normal"
-                      htmlFor="nguon"
-                    >
-                      Nguồn khách hàng
-                      <span className="text-[#da5353] text-xs font-normal">
-                        *
-                      </span>
-                    </label>
-                    <select className="w-[170px] px-2  h-9 bg-[#edf9f6] rounded border border-[#dbdbdb] text-[#181a22] text-sm font-normal font-['Open Sans'] leading-tight" name="nguon" id="nguon" >
-                      <option value="Website">Website</option>
-                      <option value="Facebook">Facebook</option>
-                      <option value="Tiktok">Tiktok</option>
-                    </select>
-                  </div>
-                  <div className="flex flex-col items-start gap-[4px]">
-                    <label
-                      className=" text-[#8f8f8f] text-xs font-normal"
-                      htmlFor="status"
-                    >
-                      Trạng thái
-                      <span className="text-[#da5353] text-xs font-normal">
-                        *
-                      </span>
-                    </label>
-                    <select
-                      className="w-[170px] px-[10px]  h-9 bg-white rounded border border-[#dbdbdb] text-[#181a22] text-sm font-normal font-['Open Sans'] leading-tight"
-                      name="status" id="status"
-                    >
-                      <option value="trainhiem">Yêu cầu trải nghiệm</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div></div>
-              <div></div>
-            </div>
-            <div></div>
-            <div></div>
+          <form className="px-[25px] py-[25px] flex flex-col gap-5">
+            <CustomerInfo />
+            <ContactInfo />
+            <InfoDetail/>
           </form>
         </div>
       )}
