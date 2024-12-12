@@ -3,7 +3,7 @@ import CustomerInfo from "../form/CustomerInfo";
 import ContactInfo from "../form/ContactInfo";
 import InfoDetail from "../form/InfoDetail";
 
-function ButtonAdd() {
+function ButtonAdd({tinh, huyen, getHuyen}) {
   const [isFormVisible, setIsFormVisible] = useState(false); // State để quản lý hiển thị form
 
   // Hàm để chuyển đổi hiển thị form
@@ -56,7 +56,7 @@ function ButtonAdd() {
           <form className="px-[25px] py-[25px] flex flex-col gap-5">
             <CustomerInfo />
             <ContactInfo />
-            <InfoDetail/>
+            <InfoDetail tinh = {tinh} huyen= {huyen} getHuyen ={getHuyen}/>
           </form>
         </div>
       )}

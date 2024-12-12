@@ -1,23 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-const getTinh = async () => {
-  const url = "https://vn-public-apis.fpo.vn/provinces/getAll?limit=-1";
-  const options = {
-    method: "GET",
-  };
-
-  try {
-    const response = await fetch(url, options);
-    const result = await response.json();
-    return result?.data.data || [];
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-async function Location() {
-  const data = await getTinh();
-  console.log(data);
+function Location({ tinh , huyen , getHuyen}) {
+ 
 
   return (
     <div className="flex flex-col items-start justify-start gap-3">
@@ -28,11 +12,12 @@ async function Location() {
         className="outline-none w-[304px] px-2 pl-[18px] h-9 bg-[#edf9f6] rounded border border-[#dbdbdb] text-[#8f8f8f] text-sm font-normal font-['Open Sans'] leading-tight"
         name=""
         id=""
+        onChange={() => {getHuyen(e.target.value)}}
       >
-        <option value="">-- Chọn Tỉnh --</option>
-        {data.map((e) => {
+        {valueTinh ? <option value="">{valueTinh}</option> : <option value="-- Chọn Tỉnh --"></option>}
+        {tinh.map((e) => {
           return e.name ? (
-            <option key={e.code} value="">
+            <option key={e.code} value={e.code}>
               {e.name}
             </option>
           ) : null;
@@ -44,6 +29,13 @@ async function Location() {
         id=""
       >
         <option value="">-- Chọn Huyện -- </option>
+        {huyen.map((e) => {
+          return e.name ? (
+            <option key={e.code} value={e.code}>
+              {e.name}
+            </option>
+          ) : null;
+        })}
       </select>
       <select
         className="outline-none w-[304px] px-2 pl-[18px] h-9 bg-[#edf9f6] rounded border border-[#dbdbdb] text-[#8f8f8f] text-sm font-normal font-['Open Sans'] leading-tight"
