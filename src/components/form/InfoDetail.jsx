@@ -1,7 +1,7 @@
 import React from "react";
 import Location from "./Location";
 
-function InfoDetail({tinh, huyen, getHuyen}) {
+function InfoDetail() {
   return (
     <div className="flex justify-between items-start">
       <div className="flex flex-col items-start">
@@ -31,7 +31,7 @@ function InfoDetail({tinh, huyen, getHuyen}) {
           />
         </div>
       </div>
-      <Location tinh = {tinh} huyen={huyen} getHuyen ={getHuyen}/>
+      <Location/>
     </div>
   );
 }

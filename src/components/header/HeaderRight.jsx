@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import React from "react";
 import ButtonAdd from "./ButtonAdd";
 
-function HeaderRight({tinh , huyen, getHuyen}) {
+function HeaderRight() {
   return (
     <>
     <div className=" flex flex-col items-end gap-5">
@@ -16,7 +16,7 @@ function HeaderRight({tinh , huyen, getHuyen}) {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>
-      <ButtonAdd tinh = {tinh} huyen = {huyen} getHuyen ={getHuyen}/>
+      <ButtonAdd/>
     </div>
     </>
   );
