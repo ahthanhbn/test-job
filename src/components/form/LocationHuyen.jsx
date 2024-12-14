@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function LocationHuyen({ code, handleValueHuyen }) {
-  const [huyen, setHuyen] = useState(code);
+  const [huyen, setHuyen] = useState(null);
   useEffect(() => {
     // Giả lập việc gọi API
     const getHuyen = async (code) => {
@@ -18,8 +18,7 @@ function LocationHuyen({ code, handleValueHuyen }) {
       }
     };
     getHuyen(code);
-  }, []);
-//   console.log(huyen);
+  }, [code]);
 
   return (
     <select
@@ -33,7 +32,7 @@ function LocationHuyen({ code, handleValueHuyen }) {
         huyen.map((e) => {
           return (
             <option key={e.code} value={e.code}>
-              {e.name_with_type}
+              {e.name}
             </option>
           );
         })

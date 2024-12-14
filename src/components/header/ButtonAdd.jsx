@@ -57,6 +57,7 @@ function ButtonAdd() {
             <CustomerInfo />
             <ContactInfo />
             <InfoDetail />
+            
           </form>
         </div>
       )}

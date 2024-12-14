@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function LocationQuan({ code }) {
-  const [quan, setQuan] = useState(second);
+  const [quan, setQuan] = useState(null);
 
   useEffect(() => {
     // Giả lập việc gọi API
@@ -19,7 +19,7 @@ function LocationQuan({ code }) {
       }
     };
     getHuyen(code);
-  }, []);
+  }, [code]);
   return (
     <select
       className="outline-none w-[304px] px-2 pl-[18px] h-9 bg-[#edf9f6] rounded border border-[#dbdbdb] text-[#8f8f8f] text-sm font-normal font-['Open Sans'] leading-tight"
@@ -31,7 +31,7 @@ function LocationQuan({ code }) {
         quan.map((e) => {
           return (
             <option key={e.code} value={e.code}>
-              {e.name_with_type}
+              {e.name}
             </option>
           );
         })

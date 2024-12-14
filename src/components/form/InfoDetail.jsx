@@ -1,5 +1,6 @@
 import React from "react";
 import Location from "./Location";
+import ChooseTime from "./ChooseTime";
 
 function InfoDetail() {
   return (
@@ -32,6 +33,7 @@ function InfoDetail() {
         </div>
       </div>
       <Location/>
+      <ChooseTime/>
     </div>
   );
 }
